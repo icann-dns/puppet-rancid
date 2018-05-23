@@ -21,12 +21,12 @@ umask 027
 #
 TMPDIR=/tmp; export TMPDIR
 # Be careful changing this, it affects CVSROOT below.
-BASEDIR=<%= @homedir_real %>; export BASEDIR
-PATH=<%= @rancid_path_env_real %>; export PATH
+BASEDIR=<%= @homedir %>; export BASEDIR
+PATH=<%= @rancid_path_env.join(':') %>; export PATH
 # Location of the CVS/SVN repository.  Be careful changing this.
 CVSROOT=<%= @vcsroot_real %>; export CVSROOT
 # Location of log files produced by rancid-run(1).
-LOGDIR=<%= @logdir_real %>; export LOGDIR
+LOGDIR=<%= @logdir %>; export LOGDIR
 #
 # Select which RCS system to use, "cvs" (default) or "svn".  Do not change
 # this after CVSROOT has been created with rancid-cvs.  Changing between these
@@ -45,7 +45,7 @@ RCSSYS=<%= @vcs_real %>; export RCSSYS
 FILTER_PWDS="<%= @filterpwds %>"; export FILTER_PWDS
 #
 # if NOCOMMSTR is set, snmp community strings will be stripped from the configs
-NOCOMMSTR="<%= @nocommstr %>"; export NOCOMMSTR
+NOCOMMSTR="<% if @nocommstr %>YES<% else %>NO<% end %>"; export NOCOMMSTR
 #
 # How many times failed collections are retried (for each run) before
 # giving up.  Minimum: 1
@@ -64,7 +64,12 @@ LOCKTIME="<%= @locktime %>"; export LOCKTIME
 PAR_COUNT="<%= @parcount %>"; export PAR_COUNT
 #
 # list of rancid groups
-LIST_OF_GROUPS="<%= @groups.flatten.join(' ') %>"
+<%- if @groups -%>
+LIST_OF_GROUPS="<%= @groups.keys.join(' ') %>"
+<%- else -%>
+LIST_OF_GROUPS=""
+<%- end -%>
+
 #
 # For each group, define a list of people to receive the diffs.
 # in sendmail's /etc/aliases.

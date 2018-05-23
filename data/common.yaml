@@ -1,0 +1,28 @@
+rancid::filterpwds: ALL
+rancid::nocommstr: true
+rancid::maxrounds: 4
+rancid::oldtime: 4
+rancid::locktime: 4
+rancid::parcount: 5
+rancid::maildomain: ~
+rancid::groups: ~
+rancid::devices: ~
+rancid::packages:
+- rancid
+rancid::rancid_config: /etc/rancid/rancid.conf
+rancid::rancid_path_env:
+  - /usr/lib/rancid/bin
+  - /bin
+  - /usr/bin
+  - /usr/local/bin
+  - /sbin
+  - /usr/sbin
+  - /usr/local/sbin
+rancid::homedir: /var/lib/rancid
+rancid::logdir: /var/log/rancid
+rancid::user: rancid
+rancid::group: rancid
+rancid::shell: /bin/bash
+rancid::cron_d_file: /etc/cron.d/rancid
+rancid::cloginrc_content: '# managed by puppet'
+rancid::router_db_delimiter: ';'
