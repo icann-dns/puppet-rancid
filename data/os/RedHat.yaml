@@ -1,0 +1,2 @@
+rancid::rancid_path_env: '/usr/libexec/rancid:/bin:/usr/bin:/usr/local/bin'
+rancid::homedir: /var/rancid

@@ -1,4 +1,4 @@
-<%- @devices[@name].each_pair do |key, hash| -%>
-<%=hash['hostname']-%>;<%=hash['type']-%>;<%=hash['status']-%>
+<%- @devices.each do |device| -%>
+<%= device['hostname'] -%><%= @delimiter %><%= device['type'] -%><%= @delimiter %><%= device['status'] -%>
 
 <%- end -%>
