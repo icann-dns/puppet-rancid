@@ -9,6 +9,7 @@ rancid::groups: ~
 rancid::devices: ~
 rancid::packages:
 - rancid
+- cvs
 rancid::rancid_config: /etc/rancid/rancid.conf
 rancid::rancid_path_env:
   - /usr/lib/rancid/bin
