@@ -1,5 +1,5 @@
-# == Define: rancid::group
-#
+# @summary Manage RANCID - http://www.shrubbery.net/rancid/
+# @param devices Devices to manage
 define rancid::group (
   Array[Rancid::Device] $devices,
 ) {
